@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://texturas/butoon.png" type="Texture" id=1]
+[ext_resource path="res://codigos/Button.gd" type="Script" id=2]
+[ext_resource path="res://escena/Escena_principañ.tscn" type="PackedScene" id=3]
+[ext_resource path="res://musica/selectMenu.ogg" type="AudioStream" id=4]
+[ext_resource path="res://PressStart2P-Regular.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animacionBoton"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Button:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 5 )
+
+[node name="MEnuInicio" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.117647, 0.772549, 1, 1 )
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -219.0
+margin_top = -148.0
+margin_right = 219.0
+margin_bottom = 148.0
+rect_pivot_offset = Vector2( 214.574, 144.519 )
+icon = ExtResource( 1 )
+flat = true
+align = 0
+expand_icon = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+escenaPrincipal = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=[
+"AnimationPlayer",
+]]
+anims/animacionBoton = SubResource( 1 )
+
+[node name="itemSound" type="AudioStreamPlayer" parent="." groups=[
+"itemSound",
+]]
+stream = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -103.0
+custom_fonts/font = SubResource( 2 )
+text = "FLAPPY BIRD POR
+ARIEL GIMENEZ"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+[connection signal="button_down" from="Button" to="Button" method="_on_Button_button_down"]
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_Button_mouse_exited"]
