@@ -14,9 +14,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	if datosGlobales.gameOver == false:
 		reposicionar()
+
 
 func reposicionar():
 	if suelo.translation.z > 60:
