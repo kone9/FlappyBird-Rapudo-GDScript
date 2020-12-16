@@ -33,7 +33,7 @@ func _physics_process(delta) -> void:
 		if aplicarImpulsoFinal == false:
 			apply_impulse(self.translation,Vector3(0,fuerzaImpulsoAlMorir,0))
 			aplicarImpulsoFinal = true
-
+			
 			# Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

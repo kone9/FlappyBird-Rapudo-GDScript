@@ -33,9 +33,10 @@ surfaces/1 = {
 }
 
 [sub_resource type="BoxShape" id=2]
+margin = 3.0
 extents = Vector3( 1, 1, 20 )
 
-[sub_resource type="PrismMesh" id=6]
+[sub_resource type="PrismMesh" id=3]
 
 [sub_resource type="ArrayMesh" id=4]
 surfaces/0 = {
@@ -93,7 +94,7 @@ suelo = NodePath("../../suelo2")
 
 [node name="MeshInstance" type="MeshInstance" parent="suelo/ReposicionarSuelo1"]
 transform = Transform( -4.37114e-08, -2.08616e-07, -1, 0, 1, -2.08616e-07, 1, -9.11891e-15, -4.37114e-08, 8.74228e-08, -4, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="suelo2" type="KinematicBody" parent="." groups=[
